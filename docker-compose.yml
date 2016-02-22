@@ -11,7 +11,7 @@ zookeeper:
     - /tmp/docker/zk1/data:/data
 
 kafka1:
-  image: samsara/kafka
+  build: kafka
   container_name: kafka1
   ports:
     - "9092:9092"
@@ -19,13 +19,14 @@ kafka1:
   links:
     - zookeeper
   environment:
+    ADV_IP: 192.168.99.100
     KAFKA_BROKER_ID: 1
   volumes:
     - /tmp/docker/kafka1/logs:/logs
     - /tmp/docker/kafka1/data:/data
 
 kafka2:
-  image: samsara/kafka
+  build: kafka
   container_name: kafka2
   ports:
     - "9093:9093"
@@ -33,6 +34,7 @@ kafka2:
   links:
     - zookeeper
   environment:
+    ADV_IP: 192.168.99.100
     KAFKA_BROKER_ID: 2
     KAFKA_BROKER_PORT: 9093
   volumes:
@@ -40,7 +42,7 @@ kafka2:
     - /tmp/docker/kafka2/data:/data
 
 kafka3:
-  image: samsara/kafka
+  build: kafka
   container_name: kafka3
   ports:
     - "9094:9094"
@@ -48,6 +50,7 @@ kafka3:
   links:
     - zookeeper
   environment:
+    ADV_IP: 192.168.99.100
     KAFKA_BROKER_ID: 3
     KAFKA_BROKER_PORT: 9094
   volumes:
