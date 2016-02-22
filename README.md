@@ -8,11 +8,12 @@ This repository gives you the ability to create a local kafka cluster for develo
 4. Osx users will need to carry out this [routing stepup step](./OSX-Routing.md) now and every time they restart their system. (Currently looking for a better solution)
 
 ##  Running 
-1. This step only applies to linux users, mac users should skip this. you'll need to create local directories (under /tmp/docker) that are linked to directories internally used by the containers. set up all associated local volumes/directories by running this command  
+0. This step only applies to linux users, mac users should skip this. you'll need to create local directories (under /tmp/docker) that are linked to directories internally used by the containers. set up all associated local volumes/directories by running this command  
 ``mkdir -p `grep /tmp/docker docker-compose.yml | cut -d' ' -f6 | cut -d':' -f1 | sort` `` 
-2. Ensure docker is running (mac users follow these [steps](https://docs.docker.com/installation/mac/#from-your-command-line))
-3. Start all the needed containers.run ``docker-compose up -d``
-4. Running ``docker-compose ps`` or ``docker ps`` should show at least a zookeeper container and 1 or 3 kafka containers
+0. Ensure docker is running (mac users follow these [steps](https://docs.docker.com/installation/mac/#from-your-command-line))
+0. You may need to run ``eval "$(docker-machine env default)"``
+0. Start all the needed containers.run ``docker-compose up -d``
+0. Running ``docker-compose ps`` or ``docker ps`` should show at least a zookeeper container and 1 or 3 kafka containers
 
 ##  Walkthroughs
 These walkthroughs are aimed at getting you familiar with kafka.    

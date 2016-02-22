@@ -14,16 +14,22 @@ It is possible to have a topic with just one partition, however this is not advi
 
 #### 1. Create a Topic  
 Go to the bin directory where you downloaded and extracted confluent package to run  
-``./kafka-topics --zookeeper $(boot2docker ip):2181 --create --topic benders --partitions 3 --replication-factor 3``  
+``./kafka-topics --zookeeper $(boot2docker ip):2181 --create --topic benders --partitions 3 --replication-factor 3`` 
+*"Note $(docker-machine ip default) if using dockermachine"*
+
    This should create a topic with 3 partitions with each partition having 3 copies.   
 #### 2. View Topic information  
 To view the list of topics, run  
 ``./kafka-topics --zookeeper $(boot2docker ip):2181 --list``   
+*"Note $(docker-machine ip default) if using dockermachine"*
+
    This will return something similar to the following (*ignore the _schema topic, it's auto-created by the schemaregistry container*)  
    > benders
 
 To view more detailed information about the topic (Partitions, Partition leaders, Replicas, In Sync Replica Set) run  
 ``./kafka-topics --zookeeper $(boot2docker ip):2181 --describe``  
+*"Note $(docker-machine ip default) if using dockermachine"*
+
    This will return something similar to the following
    > Topic:benders	PartitionCount:3	ReplicationFactor:3	Configs:  
    >	Topic: benders	Partition: 0	Leader: 2	Replicas: 2,3,1	Isr: 2,3,1  
